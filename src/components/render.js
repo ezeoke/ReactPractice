@@ -10,4 +10,4 @@ class Render extends React.Component {
  }
 }
 
-export default Render;
+export default Render; 
