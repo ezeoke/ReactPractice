@@ -1,37 +1,45 @@
-import React from 'react';            
+import React from 'react';
 import ListMap from './listMap';
-import {BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-function List(){
- const listItems = ['car', 'house', 'tree', 'billions']
+function List() {
+  const listItems = ['car', 'house', 'tree', 'billions']
   return (
     <div>
-       <h3>Practice Makes perfect</h3>
-    <ListMap element = {listItems}></ListMap>
+      <h3>Practice Makes perfect</h3>
+      <ListMap element={listItems}></ListMap>
     </div>
   )
 }
 
-function Edit(){
-  return(
+function Edit() {
+  return (
     <div>
       <p>The one that got away</p>
     </div>
   )
 }
 
-function LetsRoll(){
-return (
-  <div>
-    <p>Second man</p>
-  </div>
-)
+function LetsRoll() {
+  return (
+    <div>
+      <p>home boy</p>
+    </div>
+  )
+}
+
+function  NotFound(){
+   return  '404!'
 }
 
 const routes = (
   <BrowserRouter>
-    <Route path='/list' component={List}></Route>
-    <Route path='/edit' component={Edit}></Route>     
+    <Switch>
+      <Route path='/' component={LetsRoll} exact={true}></Route>
+      <Route path='/list' component={List}></Route>
+      <Route path='/edit' component={Edit}></Route>
+      <Route  component={NotFound}></Route>
+    </Switch>
   </BrowserRouter>
 )
 
